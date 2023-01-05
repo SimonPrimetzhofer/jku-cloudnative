@@ -14,7 +14,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginx-service
+            name: web-server-prod
             port:
               number: 80
 ---
@@ -33,6 +33,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginx-service
+            name: web-server-staging
             port:
               number: 82
