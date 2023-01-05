@@ -11,17 +11,17 @@ spec:
   rules:
     - http:
         paths:
-        - path: /prod
+        - path: /
           pathType: Prefix
           backend:
             service:
               name: web-server-prod
               port:
                 number: 80
-        - path: /staging
-          pathType: Prefix
-          backend:
-            service:
-              name: web-server-staging
-              port:
-                number: 80
+        # - path: /staging
+        #   pathType: Prefix
+        #   backend:
+        #     service:
+        #       name: web-server-staging
+        #       port:
+        #         number: 80
