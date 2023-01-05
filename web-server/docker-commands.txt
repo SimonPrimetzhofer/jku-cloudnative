@@ -1,9 +1,9 @@
 Build
 
-    docker build . -t microservice/web-server
+    docker build . -t web-server:<tag>
 
 Run
-    docker run -p 49160:80 -d microservice/web-server
+    docker run -p 49160:80 -d web-server:<tag>
 
 Show running containers
     docker ps
