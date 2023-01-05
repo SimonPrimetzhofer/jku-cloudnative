@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: web-server-ingress
+  name: web-server-ingress-prod
   namespace: production
   annotations:
     ingress.kubernetes.io/rewrite-target: /
@@ -11,14 +11,27 @@ spec:
   rules:
     - http:
         paths:
-        - path: /prod
+        - path: /
           pathType: Prefix
           backend:
             service:
               name: web-server-prod
               port:
                 number: 8081
-        - path: /staging
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-server-ingress-staging
+  namespace: staging
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+        - path: /
           pathType: Prefix
           backend:
             service:
