@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: web-server-prod
-        image: web-server:1.0.0
+        image: sprimetzhofer/jku-cloudnative:prod
         ports:
         - containerPort: 80
           name: http-web-svc
@@ -37,7 +37,7 @@ spec:
     spec:
       containers:
       - name: web-server-staging
-        image: web-server:0.0.1
+        image: sprimetzhofer/jku-cloudnative:staging
         ports:
         - containerPort: 80
           name: http-web-svc
