@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: web-server
+        app: web-server-prod
     spec:
       containers:
       - name: web-server-prod
@@ -33,7 +33,7 @@ spec:
   template:
     metadata:
       labels:
-        app: web-server
+        app: web-server-staging
     spec:
       containers:
       - name: web-server-staging
