@@ -1,58 +1,30 @@
-# apiVersion: networking.k8s.io/v1beta1 # for k3s < v1.19
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: nginx
-  namespace: production
-  annotations:
-    ingress.kubernetes.io/ssl-redirect: "false"
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /prod
-        pathType: Prefix
-        backend:
-          service:
-            name: web-server-prod
-            port:
-              number: 8080
----
 # custom web-server
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: web-server-prod
+  name: web-server-ingress
   namespace: production
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - http:
+  - host: "prod.web-server.com"
+    http:
       paths:
-      - path: /prod
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: web-server-prod
             port:
               number: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: web-server-stage
-  namespace: staging
-  annotations:
-    ingress.kubernetes.io/ssl-redirect: "false"
-spec:
-  rules:
-  - http:
+  - host: "staging.web-server.com"
+    http:
       paths:
-      - path: /staging
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: web-server-staging
             port:
-              number: 82
+              number: 80
