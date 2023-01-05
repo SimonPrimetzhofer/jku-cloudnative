@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server-prod-deployment
+  name: web-server-prod
   namespace: production
 spec:
   selector:
@@ -17,25 +17,25 @@ spec:
       - name: web-server-prod
         image: sprimetzhofer/jku-cloudnative:prod
         ports:
-        - containerPort: 8080
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: web-server-staging-deployment
-  namespace: staging
-spec:
-  selector:
-    matchLabels:
-      app: web-server-staging
-  replicas: 2 # tells deployment to run 2 pods matching the template
-  template:
-    metadata:
-      labels:
-        app: web-server-staging
-    spec:
-      containers:
-      - name: web-server-staging
-        image: sprimetzhofer/jku-cloudnative:staging
-        ports:
-        - containerPort: 8082
+        - containerPort: 80
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: web-server-staging-deployment
+#   namespace: staging
+# spec:
+#   selector:
+#     matchLabels:
+#       app: web-server-staging
+#   replicas: 2 # tells deployment to run 2 pods matching the template
+#   template:
+#     metadata:
+#       labels:
+#         app: web-server-staging
+#     spec:
+#       containers:
+#       - name: web-server-staging
+#         image: sprimetzhofer/jku-cloudnative:staging
+#         ports:
+#         - containerPort: 8082
