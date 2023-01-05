@@ -5,13 +5,13 @@ metadata:
   name: web-server-ingress-prod
   namespace: production
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    # ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
     - http:
         paths:
-        - path: /
+        - path: /prod
           pathType: Prefix
           backend:
             service:
@@ -25,13 +25,13 @@ metadata:
   name: web-server-ingress-staging
   namespace: staging
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
+    # ingress.kubernetes.io/rewrite-target: /
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
     - http:
         paths:
-        - path: /
+        - path: /staging
           pathType: Prefix
           backend:
             service:
