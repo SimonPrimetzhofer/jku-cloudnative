@@ -8,7 +8,7 @@ metadata:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - host: "prod.web-server.com"
+  - host: "prod.webserver.internal"
     http:
       paths:
       - path: /
@@ -18,7 +18,7 @@ spec:
             name: web-server-prod
             port:
               number: 80
-  - host: "staging.web-server.com"
+  - host: "staging.webserver.internal"
     http:
       paths:
       - path: /
