@@ -17,7 +17,8 @@ spec:
               name: web-server-prod
               port:
                 number: 80
-        -path: /staging
+        - path: /staging
+          pathType: Prefix
           backend:
             service:
               name: web-server-staging
