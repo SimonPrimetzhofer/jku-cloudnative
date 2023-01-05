@@ -38,4 +38,4 @@ spec:
       - name: web-server-staging
         image: sprimetzhofer/jku-cloudnative:staging
         ports:
-        - containerPort: 8082
+        - containerPort: 80
