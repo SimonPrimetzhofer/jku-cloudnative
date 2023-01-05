@@ -1,43 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server-deployment-prod
+  name: nginx-deployment
   namespace: production
 spec:
   selector:
     matchLabels:
-      app: web-server-prod
+      app: nginx
   replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: web-server-prod
+        app: nginx
     spec:
       containers:
       - name: nginx
-        image: microservice/web-server
+        image: nginx:1.14.2
         ports:
         - containerPort: 80
-          name: web-server-prod
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: web-server-deployment-staging
-  namespace: staging
-spec:
-  selector:
-    matchLabels:
-      app: web-server-staging
-  replicas: 2 # tells deployment to run 2 pods matching the template
-  template:
-    metadata:
-      labels:
-        app: web-server-staging
-    spec:
-      containers:
-      - name: web-server-staging
-        image: microservice/web-server
-        ports:
-        - containerPort: 82
-          name: web-server-staging
+          name: http-web-svc

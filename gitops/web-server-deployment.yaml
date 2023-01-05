@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server-prod-deployment
+  namespace: production
+spec:
+  selector:
+    matchLabels:
+      app: web-server-prod
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: web-server
+    spec:
+      containers:
+      - name: web-server-prod
+        image: web-server:1.0.0
+        ports:
+        - containerPort: 80
+          name: http-web-svc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server-staging-deployment
+  namespace: staging
+spec:
+  selector:
+    matchLabels:
+      app: web-server-staging
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: web-server
+    spec:
+      containers:
+      - name: web-server-staging
+        image: web-server:0.0.1
+        ports:
+        - containerPort: 80
+          name: http-web-svc
+---

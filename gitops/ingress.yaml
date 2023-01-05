@@ -16,12 +16,32 @@ spec:
           service:
             name: web-server-prod
             port:
+              number: 8080
+---
+# custom web-server
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-server-prod
+  namespace: production
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /prod
+        pathType: Prefix
+        backend:
+          service:
+            name: web-server-prod
+            port:
               number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx
+  name: web-server-stage
   namespace: staging
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
