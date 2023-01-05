@@ -17,8 +17,7 @@ spec:
       - name: web-server-prod
         image: sprimetzhofer/jku-cloudnative:prod
         ports:
-        - containerPort: 80
-          name: http-web-svc
+        - containerPort: 8080
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,6 +38,4 @@ spec:
       - name: web-server-staging
         image: sprimetzhofer/jku-cloudnative:staging
         ports:
-        - containerPort: 80
-          name: http-web-svc
----
+        - containerPort: 8082
