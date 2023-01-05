@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server-prod-deployment
+  name: web-server-prod
   namespace: production
 spec:
   selector:
@@ -17,7 +17,7 @@ spec:
       - name: web-server-prod
         image: sprimetzhofer/jku-cloudnative:prod
         ports:
-        - containerPort: 8080
+        - containerPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
