@@ -9,16 +9,20 @@ metadata:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-    - http:
+    - host: "prod.localtest.me"
+      http:
         paths:
-        - path: /prod
+        - path: /
           pathType: Prefix
           backend:
             service:
               name: web-server-prod
               port:
                 number: 8081
-        - path: /staging
+    - host: "staging.localtest.me"
+      http:
+        paths: 
+        - path: /
           pathType: Prefix
           backend:
             service:
