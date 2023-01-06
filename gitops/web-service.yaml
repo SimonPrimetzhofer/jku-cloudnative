@@ -1,16 +1,16 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: web-server-prod
-  namespace: production
-spec:
-  selector:
-    app: web-server-prod
-  ports:
-    - protocol: TCP
-      port: 8081
-      targetPort: 80
----
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: web-server-prod
+#   namespace: production
+# spec:
+#   selector:
+#     app: web-server-prod
+#   ports:
+#     - protocol: TCP
+#       port: 8081
+#       targetPort: 80
+# ---
 apiVersion: v1
 kind: Service
 metadata:
