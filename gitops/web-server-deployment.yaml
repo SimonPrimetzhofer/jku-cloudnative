@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: web-server-prod
-        image: sprimetzhofer/jku-cloudnative:prod
+        image: sprimetzhofer/jku-cloudnative:staging
         ports:
         - containerPort: 80
 ---
